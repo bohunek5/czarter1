@@ -4,7 +4,7 @@ Robocza wersja serwisu Mazury.Holiday dla Radka. Po zalogowaniu można obejrzeć
 
 GitHub Pages publikuje katalog `docs/`. Dokumenty i zdjęcia podglądu są szyfrowane. Przeglądarka odszyfrowuje je po podaniu loginu i hasła. Wylogowanie jest dostępne w stopce.
 
-W katalogu `wordpress/` znajduje się pełna paczka wtyczki w wersji 1.4.1. Aby uzyskać instalacyjny plik ZIP, rozpakuj zewnętrzne archiwum programem obsługującym ZIP AES-256 i podaj hasło podglądu.
+W katalogu `wordpress/` znajduje się pełna paczka wtyczki w wersji 1.5.0. Aby uzyskać instalacyjny plik ZIP, rozpakuj zewnętrzne archiwum programem obsługującym ZIP AES-256 i podaj hasło podglądu.
 
 ## Aktualizacja podglądu
 

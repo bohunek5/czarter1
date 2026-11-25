@@ -1,17 +1,55 @@
-:root{color-scheme:light;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#153b3a;background:#eef1e9}
-*{box-sizing:border-box}
-body{display:grid;place-items:center;min-height:100vh;min-height:100svh;margin:0;padding:1.25rem}
-main{width:min(100%,29rem);background:#fffef8;padding:clamp(1.5rem,6vw,3rem);border:1px solid #c5cfc5;border-radius:1rem;box-shadow:0 .75rem 3rem #143b3910}
-.brand{font-family:Georgia,serif;font-weight:bold;font-size:1.35rem;letter-spacing:-.045em;margin:0}
-.brand span{color:#a16c17}
-.rule{height:2px;width:2.5rem;background:#af8136;margin:1.75rem 0}
-h1{font:normal clamp(2.4rem,8vw,3.3rem)/1 Georgia,serif;letter-spacing:-.05em;margin:0 0 .8rem}
-.intro{color:#4a605c;margin:0 0 1.75rem}
-form{display:grid;gap:1.15rem}
-label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.25rem}
-input,button{width:100%;font:inherit;border-radius:.35rem}
-input{background:#fffefb;color:#153b3a;border:1px solid #8eaaa3;padding:.65rem .8rem}
-input:focus-visible,button:focus-visible{outline:3px solid #ac7119;outline-offset:3px}
-button{background:#204f4b;border:0;color:white;font-weight:650;text-align:left;padding:.8rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
-button:hover{background:#173f3e}button:disabled{opacity:.7;cursor:wait}
-#message{margin:0;color:#6e351b;font-size:.92rem}#message:empty{display:none}
+:root {
+  color-scheme:light;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#103c3d;background:#e9ece5;
+}
+* {box-sizing:border-box}
+body {display:grid;place-items:center;min-height:100vh;min-height:100svh;margin:0;padding:clamp(1rem,5vw,5rem)}
+main {
+  width:min(100%,58rem);display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);
+  background:#fffdf7;border:1px solid #c9d1c6;box-shadow:0 1.6rem 5rem #17372d12;
+}
+.cover {
+  display:flex;isolation:isolate;position:relative;overflow:hidden;min-height:31rem;
+  padding:clamp(1.6rem,3.5vw,3rem);align-items:flex-end;
+  background:#103c3d;color:#fff5ce;
+}
+.brand {position:relative;margin:0;font:normal clamp(2rem,4.5vw,3.8rem)/1.05 Georgia,serif;letter-spacing:-.05em}
+.horizon {position:absolute;inset:0;overflow:hidden;z-index:-1}
+.horizon::before {
+  content:"";position:absolute;top:17%;right:16%;width:35%;aspect-ratio:1;border-radius:50%;background:#f5c654;
+}
+.horizon::after {
+  content:"";position:absolute;inset:42% -15% -15%;
+  background:repeating-radial-gradient(ellipse 105% 145% at 20% 155%,transparent 0 9%,#71979288 9.25% 9.48%,transparent 9.7% 12%),#103c3d;
+  border-radius:0 52% 0 0/0 10% 0 0;border-top:1px solid #8eaa98;
+}
+.horizon span {
+  position:absolute;z-index:-1;inset:16% -18% 53%;
+  background:repeating-radial-gradient(ellipse 93% 125% at 17% 135%,transparent 0 15%,#9fbdab60 15.25% 15.55%,transparent 15.8% 20%);
+}
+.signin {align-self:center;padding:clamp(2.4rem,5.2vw,4.7rem) clamp(1.75rem,4.3vw,3.85rem)}
+h1 {margin:0;font:normal clamp(2.55rem,4.3vw,4.1rem)/1.02 Georgia,serif;letter-spacing:-.055em}
+.intro {margin:.9rem 0 1.7rem;color:#455e57;max-width:28ch}
+form {display:grid;gap:1rem}
+label {display:block;font-weight:650;font-size:.94rem;margin-bottom:.28rem}
+input,button {width:100%;font:inherit;border-radius:4px}
+input {min-height:47px;background:#fffefb;color:#103c3d;border:1px solid #8fa094;padding:.6rem .75rem}
+input:focus-visible,button:focus-visible {outline:3px solid #855f14;outline-offset:3px}
+button {
+  margin-top:.35rem;min-height:47px;background:#f4c552;border:1px solid #d8a735;color:#153b34;
+  font-weight:700;padding:.65rem 1rem;cursor:pointer;
+}
+button:hover {background:#ffda78;border-color:#987126}
+button:disabled {opacity:.7;cursor:wait}
+#message {margin:0;color:#813323;font-size:.96rem}#message:empty {display:none}
+@media(max-width:650px) {
+  body {padding:1rem}
+  main {grid-template-columns:1fr;width:min(100%,28rem)}
+  .cover {min-height:7.5rem;padding:1.2rem 1.5rem}
+  .brand {font-size:1.85rem}
+  .horizon {left:40%}
+  .horizon::before {top:8%;width:29%}
+  .horizon::after {top:58%}
+  .signin {padding:1.7rem clamp(1.2rem,6vw,2rem) 2rem}
+}
