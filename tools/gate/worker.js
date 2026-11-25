@@ -48,6 +48,7 @@ self.addEventListener('message', event => {
 });
 async function restoreClientKey(clientId) {
   if (!clientId) return;
+  const generation = epoch;
   const client = await self.clients.get(clientId);
   if (!client || !inScope(client.url)) return;
   const key = await new Promise(resolve => {
@@ -60,7 +61,7 @@ async function restoreClientKey(clientId) {
     };
     client.postMessage({type:'restore-key'}, [channel.port2]);
   });
-  if (key && !unlocked) await openVault(key);
+  if (key && !unlocked && generation === epoch) await openVault(key);
 }
 function gateResponse(status) {
   return new Response(null, {status,headers:{'Cache-Control':'no-store'}});

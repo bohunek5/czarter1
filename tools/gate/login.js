@@ -19,17 +19,22 @@
     } catch { /* Access can be limited in private browsing. */ }
   }
   async function getWorker() {
-    await navigator.serviceWorker.register(new URL('preview-sw.js', base), {scope:base.pathname, updateViaCache:'none'});
-    const registration = await navigator.serviceWorker.ready;
-    if (!navigator.serviceWorker.controller) {
+    const expected = new URL('preview-sw.js', base).href;
+    await navigator.serviceWorker.register(expected, {scope:base.pathname, updateViaCache:'none'});
+    if (navigator.serviceWorker.controller?.scriptURL !== expected) {
       await new Promise((resolve, reject) => {
-        const timer = setTimeout(() => { navigator.serviceWorker.removeEventListener('controllerchange', changed); reject(new Error('control')); }, 12000);
-        function changed() { clearTimeout(timer); resolve(); }
-        navigator.serviceWorker.addEventListener('controllerchange', changed, {once:true});
-        if (navigator.serviceWorker.controller) { navigator.serviceWorker.removeEventListener('controllerchange', changed); changed(); }
+        const timer = setTimeout(() => { navigator.serviceWorker.removeEventListener('controllerchange', changed); reject(new Error('control')); }, 15000);
+        function changed() {
+          if (navigator.serviceWorker.controller?.scriptURL !== expected) return;
+          navigator.serviceWorker.removeEventListener('controllerchange', changed);
+          clearTimeout(timer);
+          resolve();
+        }
+        navigator.serviceWorker.addEventListener('controllerchange', changed);
+        changed();
       });
     }
-    return registration.active;
+    return navigator.serviceWorker.controller;
   }
   function authenticate(key) {
     return new Promise((resolve, reject) => {
