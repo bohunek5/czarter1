@@ -1,0 +1,17 @@
+:root{color-scheme:light;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#153b3a;background:#eef1e9}
+*{box-sizing:border-box}
+body{display:grid;place-items:center;min-height:100vh;min-height:100svh;margin:0;padding:1.25rem}
+main{width:min(100%,29rem);background:#fffef8;padding:clamp(1.5rem,6vw,3rem);border:1px solid #c5cfc5;border-radius:1rem;box-shadow:0 .75rem 3rem #143b3910}
+.brand{font-family:Georgia,serif;font-weight:bold;font-size:1.35rem;letter-spacing:-.045em;margin:0}
+.brand span{color:#a16c17}
+.rule{height:2px;width:2.5rem;background:#af8136;margin:1.75rem 0}
+h1{font:normal clamp(2.4rem,8vw,3.3rem)/1 Georgia,serif;letter-spacing:-.05em;margin:0 0 .8rem}
+.intro{color:#4a605c;margin:0 0 1.75rem}
+form{display:grid;gap:1.15rem}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.25rem}
+input,button{width:100%;font:inherit;border-radius:.35rem}
+input{background:#fffefb;color:#153b3a;border:1px solid #8eaaa3;padding:.65rem .8rem}
+input:focus-visible,button:focus-visible{outline:3px solid #ac7119;outline-offset:3px}
+button{background:#204f4b;border:0;color:white;font-weight:650;text-align:left;padding:.8rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+button:hover{background:#173f3e}button:disabled{opacity:.7;cursor:wait}
+#message{margin:0;color:#6e351b;font-size:.92rem}#message:empty{display:none}
