@@ -1,6 +1,6 @@
 'use strict';
 const scope = new URL(self.registration.scope);
-const vaultIndex = new URL('_gate/index-33ed9ee0f449ce1d5c924c7f8995fd58f7b6c16109893852acf48173e1f3595b.bin', scope);
+const vaultIndex = new URL('_gate/index-685afae8ff705b33a2d2cd6881c4d67c87f86abf833bed3fd0fc02a684124bff.bin', scope);
 const encoder = new TextEncoder();
 let unlocked = null;
 let epoch = 0;
